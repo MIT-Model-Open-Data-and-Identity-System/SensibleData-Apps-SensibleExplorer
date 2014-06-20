@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+My token is: {{ token_loc }}
+
+{% else %}
+<div class="page-header">
+    <h1>Please log in</h1>
+</div>
+{% endif %}
+
+{% endblock %}

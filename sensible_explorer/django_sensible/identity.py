@@ -1,13 +1,12 @@
+import json
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
-import SECURE_CONFIG
-from django.core.urlresolvers import reverse
 from django.http import HttpResponse
-import oauth2
-import json
-from .models import *
-import urllib, urllib2
 from django.conf import settings
+import SECURE_CONFIG
+import oauth2
+from .models import *
+
 
 @login_required
 def requestAttributes(request):
@@ -34,7 +33,7 @@ def attributesRedirect(request):
 
 @login_required
 def test(request):
-    return HttpResponse(getAttributes(request.user, ['email']))
+    return HttpResponse(json.dumps({"user": request.user.username}))
 
 
 def getAttributes(user, attributes):

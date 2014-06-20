@@ -1,19 +1,17 @@
-from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
-import uuid
-import hashlib
-from .models import *
-import SECURE_CONFIG
-from django.shortcuts import redirect
-import urllib, urllib2
+
+import urllib
+import urllib2
 import json
-from django.core.urlresolvers import reverse
+from datetime import datetime
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.sessions.models import Session
 from django.contrib.auth.models import User
-import json
-from datetime import datetime
 from django.conf import settings
+from .models import *
+import SECURE_CONFIG
+
 
 def authorize(request):
     try:

@@ -16,11 +16,13 @@ framework.
 import os
 import sys
 
-sys.path.append('/home/andrea/SensibleData-Apps-SensibleExplorer/sensible_explorer')
-sys.path.append('/home/andrea/SensibleData-Apps-SensibleExplorer')
-
+sys.path.append('/home/marta/SensibleData-Apps-SensibleExplorer/sensible_explorer')
+sys.path.append('/home/marta/SensibleData-Apps-SensibleExplorer')
 os.environ["DJANGO_SETTINGS_MODULE"] = "sensible_explorer.settings"
 
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
+
+from paste.deploy.config import PrefixMiddleware
+application = PrefixMiddleware(application, prefix='/apps/explorer/')
 

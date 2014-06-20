@@ -5,3 +5,4 @@ local_settings.py
 SECURE_*
 LOCAL_*
 .DS_Store
+.idea
