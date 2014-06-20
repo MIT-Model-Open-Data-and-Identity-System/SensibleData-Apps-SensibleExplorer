@@ -7,7 +7,7 @@ INSTALLED_APPS = (
 OPENID_SSO_SERVER_URL = "http://raman.imm.dtu.dk/devel/sensible-data/openid/xrds/"
 
 #service config
-SERVICE_URL = 'http://raman.imm.dtu.dk/devel/sensible-dtu/'
+SERVICE_URL = 'http://raman.imm.dtu.dk:8083/andrea/sensible-dtu/'
 AUTH_ENDPOINT = 'authorization_manager/'
 CONNECTOR = 'connector_raw/v1'
 SERVICE_TOKEN_URL = SERVICE_URL + 'connectors/' + CONNECTOR + '/auth/token/'

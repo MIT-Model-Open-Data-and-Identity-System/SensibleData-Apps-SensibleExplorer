@@ -5,6 +5,55 @@
 {% if user.is_authenticated %}
 
 My token is: {{ token_loc }}
+<br/>
+
+<button type="button" onclick="fetchStops();">Fetch stops</button>
+<button type="button" onclick="uploadUsage();">Upload usage</button>
+
+<br/>
+
+<textarea id="output" rows="16" cols="300" width='600px'>
+Click the buttons to test the API.
+</textarea> 
+
+<script type="text/javascript">
+
+function fetchStops() {
+	$.ajax({
+	    url: "http://raman.imm.dtu.dk:8083/andrea/sensible-dtu/connectors/connector_answer/v1/stops_question/stops_answer/",
+	    data: {'bearer_token': '{{ token_loc }}', 'limit': 10 },
+	    success: function( response ) {
+	      console.log( 'received response' ); 
+		  $('#output').text(JSON.stringify(response))
+	    }
+	  });
+}
+
+function uploadUsage() {
+	$.ajax({
+	    url : "http://raman.imm.dtu.dk:8083/andrea/sensible-dtu/connectors/connector_funf/usage/",
+	    type: "POST",
+	    data : { 'bearer_token': '{{ token_loc }}',
+	    'appid': 'sensibleexplorer',
+	    'events': '[[10000, "test123"]]'
+	  },
+	    success: function(data, textStatus, jqXHR)
+	    {
+	        console.log(data)
+	        console.log(textStatus)
+	        $('#output').text(textStatus + ' | ' + data)
+
+	    },
+	    error: function (jqXHR, textStatus, errorThrown)
+	    {
+	        console.log(jqXHR.responseText)
+	        console.log(jqXHR.statusText)
+	        $('#output').text(jqXHR.responseText + ' | ' + jqXHR.statusText)
+	    }
+	});
+}
+
+</script>
 
 {% else %}
 <div class="page-header">
