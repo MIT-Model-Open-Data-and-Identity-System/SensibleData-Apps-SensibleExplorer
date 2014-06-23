@@ -1,20 +1,64 @@
 {% extends "base.html" %}
 
+{% block extra_head %}
+
+    <link type="text/css" href="{{STATIC_URL}}css/style.css" rel="stylesheet" />
+    <script src="{{STATIC_URL}}lib/d3.v3/d3.v3.js"></script>
+    <script src="{{STATIC_URL}}lib/polymaps/polymaps.js"></script>
+    <script src="{{STATIC_URL}}lib/mobility-vis/mobility-datastore.js"></script>
+    <script src="{{STATIC_URL}}lib/mobility-vis/mobility-log.js"></script>
+    <script src="{{STATIC_URL}}lib/mobility-vis/mobility-timeline.js"></script>
+    <script src="{{STATIC_URL}}lib/mobility-vis/mobility-map.js"></script>
+    <script src="{{STATIC_URL}}lib/mobility-vis/mobility-overlay.js"></script>
+    <script src="{{STATIC_URL}}lib/mobility-vis/mobility-gui.js"></script>
+    <script src="{{STATIC_URL}}lib/mobility-vis/mobility-detailview.js"></script>
+    <script src="{{STATIC_URL}}lib/mobility-vis/mobility-point.js"></script>
+    <script src="{{STATIC_URL}}lib/mobility-vis/mobility-help.js"></script>
+    <script src="{{STATIC_URL}}lib/jquery/jquery.min.js"></script>
+    <script src="{{STATIC_URL}}lib/jquery/jquery.cookie-1.4.1.min.js"></script>
+    <script src="{{STATIC_URL}}lib/jStorage/jstorage.min.js"></script>
+     <script>
+         var mmap;
+         var CLIENT_ID = "4FFPRAEN5QDVQMSC4GUIOXWUV5HQ5G5JX00XDO1V0KH3MH1Y";
+
+         var CLIENT_SECRET = "VXGOHMEKIVTMMDI4XHEX4JEUB5NHN1QBO5TSOMSIHHMNPYVR";
+
+
+         $(document).ready(function () {
+             po = org.polymaps;
+
+             $.mlog = new mobility_log("FAKE URL");
+             mdata = new mobility_datastore("{{STATIC_URL}}data/newdata.csv");
+
+
+             mmap = new mobility_map("vismap", 55.751849, 12.535186, mdata);
+             moverlay = new mobility_overlay("vismap", mdata);
+             mhelp = new mobility_help("vismap", moverlay);
+             moverlay.setRefs(mmap, mhelp);
+             mmap.setRefs(moverlay, mhelp);
+
+
+             // addEventListener("overlayClosed", function () { delete moverlay});
+
+             $(window).resize(function () {
+                 mmap.redraw();
+                 moverlay.redraw();
+                 mhelp.redraw();
+             });
+         })
+        </script>
+
+{% endblock %}
+
+
+
 {% block content %}
 
 {% if user.is_authenticated %}
 
-My token is: {{ token_loc }}
-<br/>
-
-<button type="button" onclick="fetchStops();">Fetch stops</button>
-<button type="button" onclick="uploadUsage();">Upload usage</button>
-
-<br/>
-
-<textarea id="output" rows="16" cols="300" width='600px'>
-Click the buttons to test the API.
-</textarea> 
+<div id="container">
+        <div id="vismap"></div>
+    </div>
 
 <script type="text/javascript">
 

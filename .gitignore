@@ -6,3 +6,5 @@ SECURE_*
 LOCAL_*
 .DS_Store
 .idea
+runserver.sh
+sensible_explorer/static/data/newdata.csv

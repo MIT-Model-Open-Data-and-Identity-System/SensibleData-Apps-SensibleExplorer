@@ -1,0 +1,213 @@
+﻿html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  /*text-rendering: optimizeLegibility;*/
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+
+ #container, #vismap {
+    min-width: 1300px;
+    min-height: 740px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    fill: #C9C9C9;
+}
+
+
+
+svg {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+a {
+  text-decoration: underline;
+  color: black;
+  fill: black;
+}
+
+path {-webkit-transition-property: fill; 
+      -webkit-transition-duration: 0.2s;}
+
+polyline.dateLabel {
+    fill: #eeeeee;
+    fill-opacity: .8;
+    stroke: #999999;
+    stroke-width: 0.5px;
+}
+
+polyline.tickerLabel {
+    fill: #eeeeee;
+    fill-opacity: .8;
+    stroke: #999999;
+    stroke-width: 0.5px;
+}
+
+text {
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+    fill: #eeeeee;
+    font-family: 'Segoe UI';
+    font-variant: small-caps;
+    cursor:inherit;
+}
+
+    text.darkText {
+        font-family: Helvetica-Normal;
+        font-variant: normal;
+        font-size:10px;
+        fill: #333;
+    }
+
+    text.copyright {
+        fill: #000000;
+        font-variant: normal;
+    }
+
+    text.helpText {
+        font-size: 20px;
+        opacity: 0;
+        text-anchor: start;
+    }
+
+    text.scaleText {
+        font-size: 12px;
+    }
+
+.nohover {
+        pointer-events: none;
+    }
+
+.monthRec {
+    cursor: -webkit-zoom-in;
+}
+
+.fullRec {
+    cursor: -webkit-zoom-out;
+}
+
+.dateString {
+  fill: rgb(42, 42, 42);
+  color: rgb(42, 42, 42);
+  font-size: 12px;
+  text-decoration:none;
+  font-weight: bold;
+  stroke:none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: white;
+    shape-rendering: crispEdges;
+}
+
+.tile {
+  fill: #444444;
+  fill-opacity: .9;
+  /*stroke: #023E73;
+  stroke-width: 0.4px;*/
+}
+
+.timelineButton {
+    fill: #eeeeee;
+}
+ 
+.resize {
+  fill: #eeeeee;
+}
+
+.connection {
+    fill: none;
+    /*stroke: #023E73;*/
+    stroke: #444;
+}
+
+.compass .back {
+  fill: #eee;
+  fill-opacity: .8;
+}
+
+.button {
+    cursor:pointer;
+}
+
+
+.buttonText {
+    stroke: none;
+    stroke-width: 0px;
+    font-size:14px;
+    font-weight: bold
+}
+.compass .fore {
+  stroke: #999;
+  stroke-width: 1.5px;
+}
+
+.compass rect.back.fore {
+  fill: #999;
+  fill-opacity: .3;
+  stroke: #eee;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+
+.compass .direction {
+  fill: none;
+}
+
+.compass .chevron {
+  fill: none;
+  stroke: #999;
+  stroke-width: 5px;
+}
+
+.compass .zoom .chevron {
+  stroke-width: 4px;
+}
+
+.compass .active .chevron, .compass .chevron.active {
+  stroke: #fff;
+}
+
+.compass.active .active .direction {
+  fill: #999;
+}
+
+
+.node circle {
+  fill: #777;
+  opacity: 0.8;
+  stroke: #eee;
+  stroke-width: 1px;
+}
+
+.node {
+  font: 12px sans-serif;
+}
+
+.link {
+    fill: none;
+     stroke: #999999;
+    stroke-width: 1.5px;
+  
+}
