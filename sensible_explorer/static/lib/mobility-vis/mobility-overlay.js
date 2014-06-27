@@ -71,7 +71,7 @@ var mobility_overlay = (function () {
         /// <field name="linkScale" type="d3.scale">The scale for thickness of links</field>
         this.linkScale = d3.scale.linear().range([1, 5]).domain([5, 50]).clamp(true);       
         /// <field name="diameter" type="Number">The diameter of the tree graph</field>
-        this.diameter = 750;
+        this.diameter = 800;
 
         /// <field name="extraColor" type="String">The extra color of the selected point</field>
         this.extraColor = "cyan";
@@ -237,7 +237,7 @@ var mobility_overlay = (function () {
         this.visLayer.selectAll(".node")
             .selectAll("text")           
             .text(function (d) {
-                return d.point.locationName.substr(0, 16) + (((d.point.locationName.length) > 16) ? "..." : "");
+                return d.point.locationName.substr(0, 7) + (((d.point.locationName.length) > 7) ? "..." : "");
             });
 
         this.visLayer.select(".info").remove();
@@ -1059,8 +1059,9 @@ var mobility_overlay = (function () {
             .attr("transform", "translate(" + ((this.diameter / 2) * scale - 10 * 7) + ",40)")
             .style("visibility", "visible");
 
-        d3.select("#helpMapBtn")
+        this.visLayer.select("#helpMapBtn")
             .style("visibility", "visible");
+
         this.visLayer.select(".overlayCopyrightBox")
           .style("visibility", "visible");
 

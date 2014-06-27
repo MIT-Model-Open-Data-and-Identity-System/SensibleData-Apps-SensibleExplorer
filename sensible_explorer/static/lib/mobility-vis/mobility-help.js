@@ -61,20 +61,15 @@ var mobility_help = (function () {
             "This button takes you back to the simple mode."
         ];
 
-
-        var that = this;
-        addEventListener("dataReady", function (e) {            
-            if (initialView instanceof mobility_overlay)
-                that.startHelpOverlay();
-            else if (initialView instanceof mobility_map)
-                that.startHelpMap();
-        });
         
     };
 
     mobility_help.prototype.startHelpOverlay = function (force) {
         var that = this;       
         this.mode = 0;
+
+        if ($.mlog)
+            $.mlog.logEvent("helpOpened");
 
         if ($.cookie("overlayHelpVisited") != undefined && force != true)
             return;
@@ -241,6 +236,9 @@ var mobility_help = (function () {
     mobility_help.prototype.startHelpMap = function (force) {
         var that = this;
         this.mode = 1;
+
+        if ($.mlog)
+            $.mlog.logEvent("helpOpened");
 
         if ($.cookie("mapHelpVisited") != undefined && force != true)
             return;     
@@ -418,7 +416,8 @@ var mobility_help = (function () {
         d3.select("#treeGrp").selectAll("text")
            .transition()
            .style("opacity", 1);
-
+        if ($.mlog)
+            $.mlog.logEvent("helpClosed");
 
         this.helpLayer.selectAll("*").remove();
         this.helpOn = false;
