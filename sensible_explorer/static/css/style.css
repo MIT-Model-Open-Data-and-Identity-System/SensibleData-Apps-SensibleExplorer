@@ -20,6 +20,7 @@
     height: 100%;
     display: block;
     fill: #C9C9C9;
+    max-height: 800px;
 }
 
 
