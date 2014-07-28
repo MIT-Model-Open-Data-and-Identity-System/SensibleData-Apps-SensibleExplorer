@@ -966,6 +966,8 @@ var mobility_overlay = (function () {
         var chart = this;        
         var once = false;
 
+        this.mapRef.map.center(this.data.location[0]);
+
         this.visLayer.select("#exploreBtn")
             .attr("visibility", "hidden");
 

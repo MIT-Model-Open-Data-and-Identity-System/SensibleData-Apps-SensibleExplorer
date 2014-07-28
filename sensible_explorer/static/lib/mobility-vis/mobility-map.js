@@ -146,7 +146,8 @@ var mobility_map = (function () {
             chart.startTime = dataStore.startTime;
             chart.endTime = dataStore.endTime;
             chart.timelineRef = new mobility_timeline(chart.timelineLayer, chart, chart.data.time[0].start, chart.data.time[chart.data.time.length - 1].end, chart.startTime);           
-            chart.map.center({ lat: lat, lon: long });
+
+            
             chart.gui.blockGui();            
         });        
     };
@@ -175,7 +176,6 @@ var mobility_map = (function () {
 
         if ($.mlog)
             $.mlog.logEvent("mapOpened");
-
         this.updateTimeEnd();
         this.helpRef.startHelpMap();
     };
