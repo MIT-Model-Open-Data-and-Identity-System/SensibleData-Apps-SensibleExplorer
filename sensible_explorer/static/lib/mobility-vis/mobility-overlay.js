@@ -966,6 +966,8 @@ var mobility_overlay = (function () {
         var chart = this;        
         var once = false;
 
+        this.mapRef.map.center(this.data.location[0]);
+
         this.visLayer.select("#exploreBtn")
             .attr("visibility", "hidden");
 
@@ -1123,6 +1125,7 @@ var mobility_overlay = (function () {
         .style("font-size", "9px");
 
         text.append("a")
+            .attr("class", "blackUrl")
         .attr("xlink:href", "http://www.openstreetmap.org/copyright")
             .append("tspan")
         .text("© OpenStreetMap ");
