@@ -75,7 +75,7 @@
              $.mlog = new mobility_log("http://raman.imm.dtu.dk:8083/andrea/sensible-dtu/connectors/connector_funf/usage/",
                  '{{ token_loc }}');
              mdata = new mobility_datastore("http://raman.imm.dtu.dk:8083/andrea/sensible-dtu/connectors/connector_answer/v1/stops_question/stops_answer/",
-                                                { 'bearer_token': '{{ token_loc }}'});
+                                                { 'bearer_token': '{{ token_loc }}', 'limit': '1000'});
              
 
              mmap = new mobility_map("vismap", 55.751849, 12.535186, mdata);
