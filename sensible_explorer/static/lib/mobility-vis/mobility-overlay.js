@@ -113,8 +113,8 @@ var mobility_overlay = (function () {
 
             chart.visLayer.append("text")
                 .attr({
-                    x: document.getElementById(this.parentId).offsetWidth / 2 - 20,
-                    y: document.getElementById(this.parentId).offsetHeight / 2,
+                    x: 20,
+                    y: 20,
                 })
                 .text("No data available!");
         });

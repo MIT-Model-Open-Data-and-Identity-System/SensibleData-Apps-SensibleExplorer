@@ -53,6 +53,7 @@ var mobility_datastore = (function () {
                 data: dataObject,
                 success: function (response) {
                     if (page === 0 && response.length === 0) {
+                        console.log('no data available');
                         var event = new Event("noData");
                         dispatchEvent(event);
                         return;
