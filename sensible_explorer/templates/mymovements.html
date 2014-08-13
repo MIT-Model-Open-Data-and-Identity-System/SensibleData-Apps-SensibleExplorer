@@ -25,17 +25,14 @@
 
      <script>
          var mmap;
-         var CLIENT_ID = "4FFPRAEN5QDVQMSC4GUIOXWUV5HQ5G5JX00XDO1V0KH3MH1Y";
-
-         var CLIENT_SECRET = "VXGOHMEKIVTMMDI4XHEX4JEUB5NHN1QBO5TSOMSIHHMNPYVR";
          var ICON_URL = "{{STATIC_URL}}data/arrow.png";
 
          $(document).ready(function () {
              po = org.polymaps;
 
-             $.mlog = new mobility_log("http://raman.imm.dtu.dk:8083/andrea/sensible-dtu/connectors/connector_funf/usage/",
+             $.mlog = new mobility_log("{{SERVICE_URL}}connectors/connector_funf/usage/",
                  '{{ token_loc }}');
-             mdata = new mobility_datastore("http://raman.imm.dtu.dk:8083/andrea/sensible-dtu/connectors/connector_answer/v1/stops_question/stops_answer/",
+             mdata = new mobility_datastore("{{SERVICE_URL}}connectors/connector_answer/v1/stops_question/stops_answer/",
                                                 { 'bearer_token': '{{ token_loc }}', 'limit': '1000'});
              
 

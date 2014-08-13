@@ -21,5 +21,5 @@ def mymovements(request):
 	token_loc = refresh_token(request.user)
 	if token_loc == '':
 		return HttpResponseRedirect(reverse('login'))
-	return render_to_response('mymovements.html', {'token_loc': token_loc}, 
+	return render_to_response('mymovements.html', {'token_loc': token_loc, 'SERVICE_URL': settings.SERVICE_URL}, 
 		context_instance=RequestContext(request))
