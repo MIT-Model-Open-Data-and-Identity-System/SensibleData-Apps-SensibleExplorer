@@ -249,7 +249,7 @@ var mobility_point = (function () {
                 //        }
                 //        else {
                 //            // If FourSquare knows nothing about the address, get the address from Open Street Map
-                            d3.json("https://nominatim.openstreetmap.org/reverse?format=json&" + 
+                            d3.json("http://nominatim.openstreetmap.org/reverse?format=json&" + 
                                 "lat=" + point.lat + "&lon=" + point.lon ,
                                 function(openData){
 
